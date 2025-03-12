@@ -1,3 +1,11 @@
+/*
+Approach:
+1. Create DDL for table
+2. Truncate target table to avoid duplication when script is run multiple times
+3. Insert data to target table as no transformations are needed
+
+*/
+
 CREATE TABLE IF NOT EXISTS EMPLOYEE (
 employee_id TINYINT,
 first_name  VARCHAR,

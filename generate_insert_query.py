@@ -1,12 +1,22 @@
+#Aid used to extract data from files and to prepare SQL insert values queries.
+
 import os              
 
 def check_column(msg, column_mapping, key, delimiter = ":"):
+    '''
+    Given a string (msg) verify that it contains data (key - value separated by delimiter) 
+    and if it starts with desired value (column_mapping[key])
+    Output value that is stored in that string
+    '''
     if delimiter in msg:
         if msg[0:len(column_mapping[key])] == column_mapping[key]:
             return msg[len(column_mapping[key])+2:].replace('\n', '')
     return False
 
 def gen_sql_query(file_path, table_name, column_mapping, column_trim, column_with_qm):
+    '''
+    Function that goes through all files in location given by relative path (file_path) and compiles from each file row to be inserted into desired table
+    '''
     wd = os.path.abspath(os.getcwd())
     wd += file_path
 

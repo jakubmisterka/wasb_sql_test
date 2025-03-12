@@ -1,3 +1,15 @@
+/*
+Approach:
+1. Create DDL for tables
+2. Create temp table that will contain data extracted from raw files without any transformations
+3. Insert data to temp table
+4. Truncate target tables to avoid duplication when script is run multiple times
+5. Transform data from temp table so that it is ready for target tables
+6. Load data to target table
+7. Remove not needed temp table
+
+*/
+
 CREATE TABLE IF NOT EXISTS SUPPLIER (
 supplier_id TINYINT,
 NAME        VARCHAR

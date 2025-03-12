@@ -1,3 +1,15 @@
+/*
+Approach:
+1. Create DDL for table
+2. Create temp table that will contain data extracted from raw files without any transformations
+3. Insert data to temp table
+4. Truncate target table to avoid duplication when script is run multiple times
+5. Transform data from temp table so that it is ready for target table
+6. Load data to target table
+7. Remove not needed temp table
+
+*/
+
 CREATE TABLE IF NOT EXISTS EXPENSES (
 employee_id TINYINT,
 unit_price  DECIMAL(8, 2),

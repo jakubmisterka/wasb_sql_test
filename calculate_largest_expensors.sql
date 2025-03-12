@@ -1,3 +1,11 @@
+/*
+Approach:
+1. Aggregate data from EXPENSES table to calcualte total expenses per employee
+2. Join EMPLOYEE table twice to display info about both employee and their manager
+3. Order output as per request
+
+*/
+
 SELECT 
      em.employee_id
     ,em.first_name || ' ' || em.last_name AS employee_name
